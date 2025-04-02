@@ -54,25 +54,25 @@ document.addEventListener("DOMContentLoaded", function () {
   // updateEventDropdown();
 });
 
-// const updateEventDropdown = function () {
-//   const eventSelect = document.getElementById("eventSelect");
-//   eventSelect.innerHTML = '<option value="">Choose an event...</option>';
+const updateEventDropdown = function () {
+  const eventSelect = document.getElementById("eventSelect");
+  eventSelect.innerHTML = '<option value="">Choose an event...</option>';
 
-//   events.forEach((event) => {
-//     let registrations = JSON.parse(localStorage.getItem("registrations")) || [];
-//     let registeredCount = registrations.filter(
-//       (reg) => reg.eventId === event.id
-//     ).length;
-//     let availableSeats = event.availableSeats - registeredCount;
+  events.forEach((event) => {
+    let registrations = JSON.parse(localStorage.getItem("registrations")) || [];
+    let registeredCount = registrations.filter(
+      (reg) => reg.eventId === event.id
+    ).length;
+    let availableSeats = event.availableSeats - registeredCount;
 
-//     const option = document.createElement("option");
-//     option.value = event.id;
-//     option.textContent = `${event.name} (Seats Left: ${availableSeats})`;
+    const option = document.createElement("option");
+    option.value = event.id;
+    option.textContent = `${event.name} (Seats Left: ${availableSeats})`;
 
-//     if (availableSeats === 0) {
-//       option.disabled = true;
-//     }
+    if (availableSeats === 0) {
+      option.disabled = true;
+    }
 
-//     eventSelect.appendChild(option);
-//   });
-// }
+    eventSelect.appendChild(option);
+  });
+};

@@ -27,6 +27,10 @@ h2 {
   font-weight: bold;
 }
 
+.navbar {
+  background-color: #001748;
+}
+
 .btn-primary {
   background: linear-gradient(45deg, #007bff, #0056b3);
   border: none;
@@ -90,8 +94,8 @@ h2 {
   border-top-right-radius: 0.75rem;
 }
 
-footer {
-  background-color: #343a40;
+.footer {
+  background-color: #001748;
   color: #f8f9fa;
   padding: 2rem 0;
 }
@@ -117,4 +121,77 @@ footer a:hover {
   border-radius: 0.5rem;
   border: 1px solid #ced4da;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #001748;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar-hidden {
+  transform: translateX(-250px);
+}
+
+.main-content {
+  margin-left: 250px;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content-full {
+  margin-left: 0;
+}
+
+/* Ensure content is readable */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f9;
+}
+
+/* Adjust sidebar toggle button */
+.sidebar-toggle {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1100;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  .sidebar {
+    transform: translateX(-250px);
+  }
+  .main-content {
+    margin-left: 0;
+  }
+  .sidebar-toggle {
+    display: block !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+  .sidebar-hidden {
+    transform: translateX(-250px);
+  }
+  .main-content-full {
+    margin-left: 0;
+  }
+}
+
+/* Card Hover Effect */
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
