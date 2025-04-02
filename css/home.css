@@ -1,0 +1,21 @@
+.hero-container {
+  background-image: linear-gradient(
+      to right bottom,
+      hsla(221, 64%, 28%, 0.35),
+      hsla(221, 100%, 14%, 0.35)
+    ),
+    url(/img/hero.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.content-cont {
+  max-width: 90rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.about {
+  background-color: #d7e4ff;
+}
