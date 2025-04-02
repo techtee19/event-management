@@ -1,0 +1,120 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f9;
+}
+
+.container {
+  /* background: white; */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h2 {
+  color: #333;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(45deg, #0056b3, #003f7f);
+}
+
+.navbar-brand,
+.nav-link {
+  color: white !important;
+}
+.section-title {
+  margin: 40px 0 20px;
+  text-align: center;
+  color: #2c3e50;
+}
+.event-card {
+  transition: transform 0.2s;
+}
+.event-card:hover {
+  transform: scale(1.05);
+}
+.event-image {
+  height: 200px;
+  object-fit: cover;
+}
+.form-section {
+  /* background-color: white; */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.analytics-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.table th,
+.table td {
+  text-align: center;
+}
+
+/* Card Styling for Event Catalog */
+.card {
+  border: none;
+  border-radius: 0.75rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+footer {
+  background-color: #343a40;
+  color: #f8f9fa;
+  padding: 2rem 0;
+}
+
+footer h5 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+footer a {
+  color: #f8f9fa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #adb5bd;
+}
+
+/* Form Enhancements */
+.form-control,
+.form-select {
+  border-radius: 0.5rem;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
