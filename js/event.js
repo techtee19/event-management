@@ -1,56 +1,43 @@
-const events = [
-  {
-    id: 1,
-    title: "Tech Conference 2025",
-    description: "A day of innovation and networking.",
-    location: "Lagos",
-    date: "2025-05-20",
-    image: "img/event1.jpeg",
-    link: "registration.html",
-  },
-  {
-    id: 2,
-    title: "Startup Meetup 2025",
-    description: "Meet the pioneers of tomorrow's startups.",
-    location: "Abuja",
-    date: "2025-06-10",
-    image: "img/event2.jpeg",
-    link: "registration.html",
-  },
-  {
-    id: 3,
-    title: "Music Fest",
-    description: "Live performances by top artists.",
-    location: "New York",
-    date: "2025-07-15",
-    image: "img/event3.jpeg",
-    link: "registration.html",
-  },
-];
+"use strict";
 
-const catalog = document.getElementById("eventCatalog");
+let events = []; // Global variable to store events
+let currentPage = 1; // Track the current page
+const eventsPerPage = 6; // Number of events to display per page
+
+const fetchEvents = async function () {
+  try {
+    const res = await fetch("data.json");
+    if (!res.ok) {
+      throw new Error(`Failed to fetch events. Status: ${res.status}`);
+    }
+    const data = await res.json();
+    events = data.events; // Store events in the global variable
+    renderEvents(events); // Render all events initially
+  } catch (error) {
+    console.error("Error fetching events:", error);
+    alert("Something went wrong. Please try again later.");
+  }
+};
 
 const renderEvents = function (eventsToRender) {
-  catalog.innerHTML = "";
+  const catalog = document.getElementById("eventCatalog");
+  catalog.innerHTML = ""; // Clear the catalog before rendering
 
-  // If no events are provided or the array is empty, show a default card
-  if (!Array.isArray(eventsToRender) || eventsToRender.length === 0) {
-    catalog.innerHTML = `
-      <div class="col-md-4 mb-4">
-        <div class="card h-100 shadow-sm">
-          <img src="img/tech event.jpeg" class="card-img-top" alt="Event Image" />
-          <div class="card-body">
-            <h5 class="card-title">Tech Conference 2025</h5>
-            <p class="card-text">Join us for a day of innovation and networking.</p>
-            <a href="registration.html" class="btn btn-primary">Register</a>
-          </div>
-        </div>
-      </div>`;
+  // If no events match the filter, show a message
+  if (eventsToRender.length === 0) {
+    catalog.innerHTML = `<p>No events found.</p>`;
     return;
   }
 
-  // Render each event as a card
-  eventsToRender.forEach((event) => {
+  // Calculate the start and end indices for the current page
+  const startIndex = (currentPage - 1) * eventsPerPage;
+  const endIndex = startIndex + eventsPerPage;
+
+  // Get the events for the current page
+  const paginatedEvents = eventsToRender.slice(startIndex, endIndex);
+
+  // Render each event
+  paginatedEvents.forEach((event) => {
     const eventCard = document.createElement("div");
     eventCard.className = "col-md-4 mb-4";
     eventCard.innerHTML = `
@@ -68,38 +55,66 @@ const renderEvents = function (eventsToRender) {
       </div>`;
     catalog.appendChild(eventCard);
   });
+
+  // Render pagination controls
+  renderPaginationControls(eventsToRender.length);
 };
 
-const searchInput = document.getElementById("searchInput");
-console.log(searchInput, document.getElementById("searchInput"));
-const locationFilter = document.getElementById("locationFilter");
-console.log(locationFilter);
+const renderPaginationControls = function (totalEvents) {
+  const paginationContainer = document.getElementById("paginationControls");
+  paginationContainer.innerHTML = ""; // Clear existing controls
+
+  const totalPages = Math.ceil(totalEvents / eventsPerPage); // Calculate total pages
+
+  // Create "Previous" button
+  const prevButton = document.createElement("button");
+  prevButton.textContent = "Previous";
+  prevButton.className = "btn btn-secondary me-2";
+  prevButton.disabled = currentPage === 1; // Disable if on the first page
+  prevButton.addEventListener("click", () => {
+    currentPage--;
+    renderEvents(events); // Re-render events
+  });
+  paginationContainer.appendChild(prevButton);
+
+  // Create "Next" button
+  const nextButton = document.createElement("button");
+  nextButton.textContent = "Next";
+  nextButton.className = "btn btn-secondary";
+  nextButton.disabled = currentPage === totalPages; // Disable if on the last page
+  nextButton.addEventListener("click", () => {
+    currentPage++;
+    renderEvents(events); // Re-render events
+  });
+  paginationContainer.appendChild(nextButton);
+};
 
 const filterEvents = function () {
-  const searchText = searchInput.value.toLowerCase(); // Capture search input
-  const locationValue = locationFilter.value; // Capture selected location
+  const searchInput = document.getElementById("searchInput");
+  const locationFilter = document.getElementById("locationFilter");
 
-  const filtered = events.filter((event) => {
-    // Check if event matches search text (title, location, or date)
+  const searchText = searchInput.value.toLowerCase(); // Get the search text
+  const locationValue = locationFilter.value; // Get the selected location
+
+  // Filter the events
+  const filteredEvents = events.filter((event) => {
     const matchesSearch =
       event.title.toLowerCase().includes(searchText) ||
       event.location.toLowerCase().includes(searchText) ||
       event.date.toLowerCase().includes(searchText);
 
-    // Check if event matches selected location (or all if none selected)
     const matchesLocation = !locationValue || event.location === locationValue;
 
     return matchesSearch && matchesLocation;
   });
 
-  renderEvents(filtered);
+  renderEvents(filteredEvents); // Render the filtered events
 };
 
-// Add event listeners for search and location filter
-searchInput.addEventListener("input", filterEvents);
-locationFilter.addEventListener("change", filterEvents);
+// Add event listeners for search and filter
+document.getElementById("searchInput").addEventListener("input", filterEvents);
+document
+  .getElementById("locationFilter")
+  .addEventListener("change", filterEvents);
 
-// render events
-document.addEventListener("DOMContentLoaded", function () {
-  renderEvents(events);
-});
+fetchEvents();

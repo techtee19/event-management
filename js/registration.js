@@ -1,9 +1,4 @@
-const events = [
-  { id: 1, name: "Tech Conference 2025", availableSeats: 50 },
-  { id: 2, name: "Startup Meetup 2025", availableSeats: 30 },
-  { id: 3, name: "Music Fest", availableSeats: 100 },
-];
-
+"use strict";
 document.addEventListener("DOMContentLoaded", function () {
   const eventSelect = document.getElementById("eventSelect");
 

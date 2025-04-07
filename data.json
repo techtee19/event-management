@@ -1,0 +1,136 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Tech Conference 2025",
+      "description": "A day of innovation and networking.",
+      "location": "Lagos",
+      "date": "2025-05-20",
+      "capacity": 50,
+      "image": "img/event1.jpeg",
+      "link": "registration.html"
+    },
+
+    {
+      "id": 2,
+      "title": "Startup Meetup 2025",
+      "description": "Meet the pioneers of tomorrow's startups.",
+      "location": "Abuja",
+      "date": "2025-06-10",
+      "capacity": 50,
+      "registered": 0,
+      "image": "img/event2.jpeg",
+      "link": "registration.html"
+    },
+    {
+      "id": 3,
+      "title": "Design Summit",
+      "description": "Meet the pioneers of tomorrow's startups.",
+      "location": "Port-harcourt",
+      "date": "2025-04-10",
+      "capacity": 50,
+      "registered": 0,
+      "image": "img/event2.jpeg",
+      "link": "registration.html"
+    },
+    {
+      "id": 4,
+      "title": "Music Fest",
+      "description": "Live performances by top artists.",
+      "location": "New York",
+      "date": "2025-07-15",
+      "capacity": 50,
+      "registered": 0,
+      "image": "img/event3.jpeg",
+      "link": "registration.html"
+    },
+    {
+      "id": 5,
+      "title": "Art Fest",
+      "description": "Live performances by top artists.",
+      "location": "New York",
+      "date": "2025-07-15",
+      "capacity": 50,
+      "registered": 0,
+      "image": "img/event3.jpeg",
+      "link": "registration.html"
+    },
+    {
+      "id": 6,
+      "title": "Fund Raiser",
+      "description": "Live performances by top artists.",
+      "location": "New York",
+      "date": "2025-07-15",
+      "capacity": 50,
+      "registered": 0,
+      "image": "img/event3.jpeg",
+      "link": "registration.html"
+    },
+    {
+      "id": 7,
+      "title": "Afro Music Fest",
+      "description": "Live performances by top artists.",
+      "location": "London",
+      "date": "2025-07-15",
+      "capacity": 50,
+      "registered": 0,
+      "image": "img/event3.jpeg",
+      "link": "registration.html"
+    },
+    {
+      "id": 8,
+      "title": "The Outpouring Canada",
+      "description": "Live performances by top artists.",
+      "location": "canada",
+      "date": "2025-07-15",
+      "capacity": 50,
+      "registered": 0,
+      "image": "img/event3.jpeg",
+      "link": "registration.html"
+    },
+    {
+      "id": 9,
+      "title": "The Outpouring Canada",
+      "description": "Live performances by top artists.",
+      "location": "canada",
+      "date": "2025-07-15",
+      "capacity": 50,
+      "registered": 0,
+      "image": "img/event3.jpeg",
+      "link": "registration.html"
+    },
+    {
+      "id": 10,
+      "title": "The Outpouring Canada",
+      "description": "Live performances by top artists.",
+      "location": "canada",
+      "date": "2025-07-15",
+      "capacity": 50,
+      "registered": 0,
+      "image": "img/event3.jpeg",
+      "link": "registration.html"
+    },
+    {
+      "id": 8,
+      "title": "The Outpouring Canada",
+      "description": "Live performances by top artists.",
+      "location": "canada",
+      "date": "2025-07-15",
+      "capacity": 50,
+      "registered": 0,
+      "image": "img/event3.jpeg",
+      "link": "registration.html"
+    },
+    {
+      "id": 8,
+      "title": "The Outpouring Canada",
+      "description": "Live performances by top artists.",
+      "location": "canada",
+      "date": "2025-07-15",
+      "capacity": 50,
+      "registered": 0,
+      "image": "img/event3.jpeg",
+      "link": "registration.html"
+    }
+  ]
+}
