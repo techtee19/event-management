@@ -132,23 +132,29 @@
     <!-- Footer -->
     <div id="footer"></div>
 
-    <div class="modal hidden">
-      <button class="btn--close-modal">&times;</button>
-      <h2 class="modal__header">
-        Open your bank account <br />
-        in just <span class="highlight">5 minutes</span>
-      </h2>
-      <form class="modal__form">
-        <label>First Name</label>
-        <input type="text" />
-        <label>Last Name</label>
-        <input type="text" />
-        <label>Email Address</label>
-        <input type="email" />
-        <button class="btn">Next step &rarr;</button>
-      </form>
+    <!-- Modal Structure -->
+    <div class="modal hidden" id="registerModal">
+      <div class="modal-content">
+        <span class="btn--close-modal">&times;</span>
+        <h2>Register for Event</h2>
+        <form id="registerForm">
+          <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
     </div>
-    <div class="overlay hidden"></div>
+    <div class="overlay hidden" id="modalOverlay"></div>
 
     <!-- Bootstrap JS -->
     <script
@@ -157,5 +163,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/script.js"></script>
+    <script src="js/event.js"></script>
   </body>
 </html>
