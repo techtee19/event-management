@@ -5,24 +5,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeModalBtn = document.querySelector(".btn--close-modal");
   const registerButtons = document.querySelectorAll(".btn-register"); // All "Register" buttons
 
+  console.log({ registerButtons, registerModal, modalOverlay, closeModalBtn });
+
   // Function to open the modal
   const openModal = function () {
-    registerModal.classList.remove("hidden");
-    modalOverlay.classList.remove("hidden");
+    registerModal.style.display = "block";
+    modalOverlay.style.display = "block";
   };
 
   // Function to close the modal
   const closeModal = function () {
-    registerModal.classList.add("hidden");
-    modalOverlay.classList.add("hidden");
+    registerModal.style.display = "none";
+    modalOverlay.style.display = "none";
   };
 
-  // Add event listeners to "Register" buttons
-  registerButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      openModal();
-    });
+  document.getElementById("eventCatalog").addEventListener("click", (e) => {
+    if (e.target.classList.contains("btn-register")) e.preventDefault();
+    console.log("Register button clicked");
+    openModal();
   });
 
   // Add event listeners to close modal

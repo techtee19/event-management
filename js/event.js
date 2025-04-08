@@ -59,6 +59,7 @@ const renderEvents = function (eventsToRender) {
       <p class="card-text">
         <strong>Date:</strong> ${event.date}<br>
         <strong>Location:</strong> ${event.location}<br>
+        <strong>category:</strong> ${event.category}<br>
         ${event.description}
       </p>
       <button class="btn btn-primary btn-register">Register</button>
@@ -73,7 +74,7 @@ const renderEvents = function (eventsToRender) {
 
 const renderPaginationControls = function (totalEvents) {
   const paginationContainer = document.getElementById("paginationControls");
-  paginationContainer.innerHTML = ""; // Clear existing controls
+  paginationContainer.innerHTML = "";
 
   const totalPages = Math.ceil(totalEvents / eventsPerPage); // Calculate total pages
 

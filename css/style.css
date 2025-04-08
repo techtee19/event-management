@@ -4,14 +4,18 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Arial", sans-serif;
-  font-size: 62.5%;
   background-color: #f4f4f9;
 }
 
 .container {
-  max-width: 90rem;
+  max-width: 140rem;
   padding: 0 3.2rem;
   margin: 0 auto;
 }
@@ -33,14 +37,15 @@ h2 {
 
 .navbar {
   background-color: #001748;
+  padding: 2.4rem 0;
 }
 
-.modal {
+.modals {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 60rem;
+  max-width: 70rem;
   background-color: #f3f3f3;
   padding: 5rem 6rem;
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
@@ -60,16 +65,16 @@ h2 {
   background: none;
 }
 
-.modal__header {
+.modals__header {
   font-size: 3.25rem;
   margin-bottom: 4.5rem;
   line-height: 1.5;
 }
 
-.modal__form {
+.modals__form {
   margin: 0 3rem;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr;
   align-items: center;
   gap: 2.5rem;
 }
@@ -86,9 +91,24 @@ h2 {
   transition: all 0.5s;
 }
 
+.modals__form label {
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.modals__form input {
+  font-size: 1.7rem;
+  padding: 0.6rem 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+}
+
 .hidden {
-  visibility: hidden;
-  opacity: 0;
+  display: none;
 }
 
 .btn-primary {
